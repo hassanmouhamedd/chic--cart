@@ -1,0 +1,32 @@
+<div class="dashboard-container">
+  <h1 class="dashboard-title">DashBoard</h1>
+
+  <section class="product-section">
+    <h2>
+      Products
+      <button class="btn-add" (click)="navigateToAddProduct()">Add</button>
+    </h2>
+    <div class="product-list">
+      <div class="product-card" *ngFor="let product of products">
+        <img src="{{ product.thumbnail }}" alt="{{ product.name }}" class="product-image" />
+        <h3 class="product-name">{{ product.name }}</h3>
+        <p class="product-description">{{ product.description }}</p>
+        <p class="product-price">{{ product.price | currency }}</p>
+        <button class="btn-edit" (click)="navigateToEditProduct(product.id)">Edit</button>
+        <button class="btn-delete" (click)="deleteProduct(product.id)">Delete</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="category-section">
+    <h2>
+      Categories
+      <button class="btn-add" (click)="navigateToAddCategory()">Add</button>
+    </h2>
+    <div class="category-list">
+      <div class="category-card" *ngFor="let category of categories">
+        <h3 class="category-name">{{ category.name }}</h3>
+      </div>
+    </div>
+  </section>
+</div>
